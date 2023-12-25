@@ -1,0 +1,217 @@
+body {
+  margin: 0;
+}
+
+.wrapper header {
+  position: relative;
+}
+.wrapper header .backGround {
+  position: relative;
+}
+.wrapper header .backGround .backgroundImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.wrapper header .backGround .logo-image {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  z-index: 1;
+}
+.wrapper header .backGround .logo-cercle {
+  position: absolute;
+  top: 50px;
+  left: 250px;
+  z-index: 1;
+}
+.wrapper main {
+  /* Style for the search container */
+  position: relative;
+  /* Add these styles to your existing CSS file or create a new one */
+}
+.wrapper main .searchContainer {
+  padding: 20px;
+  text-align: center;
+  background-color: transparent;
+  position: relative;
+}
+.wrapper main .searchContainer .search {
+  position: absolute;
+  margin-top: -450px;
+  /* Style for the search input */
+}
+.wrapper main .searchContainer .search .texte {
+  color: #ffd15b;
+  text-align: center;
+  font-family: Anton;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.wrapper main .searchContainer .search .searchInput {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.wrapper main .searchContainer .search .searchInput input {
+  width: 70%;
+  max-width: 600px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.wrapper main .searchContainer .search .searchLoup {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: -60px;
+  border-radius: 10px;
+  background: #1b1b1b;
+  width: 37px;
+  height: 28px;
+  flex-shrink: 0;
+  flex-shrink: 0;
+  margin-bottom: 2px;
+  padding: 6px;
+}
+.wrapper main .filtre {
+  padding: 20px;
+  background-color: #f5f5f5;
+  margin-top: 20px;
+  text-align: center;
+}
+.wrapper main .filtre .filtre_container {
+  display: flex;
+  justify-content: space-around;
+}
+.wrapper main .filtre .filtre_container .recherche-secondaire {
+  flex: 1;
+  margin: 0 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.wrapper main .filtre .filtre_container .recherche-secondaire input {
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+}
+.wrapper main .filtre .filtre_container .recherche-secondaire input input[type=text] {
+  color: black;
+}
+.wrapper main .filtre .filtre_container .recherche-secondaire img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: -40px;
+}
+.wrapper main .filtre .filtre_container .recherche-secondaire ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+.wrapper main .cartes {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content: center;
+  margin-left: 10%;
+}
+.wrapper main .cartes .carte {
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.wrapper main .cartes .carte .carte_image {
+  margin-bottom: 15px;
+}
+.wrapper main .cartes .carte .carte_image img {
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  width: 100%;
+}
+.wrapper main .cartes .carte .card-img-top {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.wrapper main .cartes .carte .title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.wrapper main .cartes .carte .time {
+  color: #888;
+  font-size: 14px;
+}
+.wrapper main .cartes .carte .description-section {
+  margin-top: 15px;
+}
+.wrapper main .cartes .carte .description {
+  line-height: 1.5;
+  color: #555;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+  max-height: 80%;
+}
+.wrapper main .cartes .carte .ingredients-section p {
+  color: #7A7A7A;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.08px;
+  text-transform: uppercase;
+}
+.wrapper main .cartes .carte .ingredients-section .ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.wrapper main .cartes .carte .ingredients-section .ingredients .ingredients-info {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  /* Each ingredient-info takes up 50% of the container width */
+}
+.wrapper main .cartes .carte .ingredients-section .ingredients .ingredients-info .title p {
+  margin-bottom: 4px;
+  /* Add margin between title and unit */
+  color: rgb(27, 27, 27);
+}
+.wrapper main .cartes .carte .ingredients-section .ingredients .ingredients-info .unit {
+  display: flex;
+  /* Display quantity and unit on the same line */
+  align-items: baseline;
+  /* Align elements to the baseline */
+  margin-top: -20px;
+  color: rgb(122, 122, 122);
+}
+.wrapper main .cartes .carte .ingredients-section .ingredients .ingredients-info .unit span {
+  color: rgb(122, 122, 122);
+}
+
+/*# sourceMappingURL=style.css.map */

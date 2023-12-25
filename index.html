@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Les petits plats</title>
+    <link  href="style.css"  rel="stylesheet"  type="text/css" />
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Header -->
+      <header>
+
+        <div class="backGround">
+        <img src="./assets/homePage.png" alt="image background" class="backgroundImage">
+    
+        <img src="./assets/cercle.svg" alt="logo du site" class="logo-cercle" />
+            <img src="./assets/logo.svg" alt="logo du site" class="logo-image" />
+           
+          
+        </div>
+      </header>
+
+      <!-- Main -->
+      <main>
+        <!-- Section 1 : Recherche principal-->
+        <section class="searchContainer">
+          <div class="search">
+            <div class="texte">
+                <p>
+                    CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
+                </p>
+
+            </div>
+            <div  class="searchInput">
+
+                <input
+             
+                type="search"
+                placeholder="Rechercher une recette, un ingrédient, ..."
+                aria-label="Recherche dans le contenu du site"
+              />
+              <img
+                class="searchLoup"
+                src="./assets/loup.svg"
+                alt="loupe cliquable pour lancer la recherche"
+              />
+
+
+            </div>
+           
+          </div>
+        </section>
+        <!-- Section 2 : Recherches secondaires -->
+        <section class="filtre">
+          <div class="element-select"></div>
+
+          <div class="filtre_container">
+            <div class="recherche-secondaire">
+              <input
+                type="search"
+                placeholder="Ingrédients"
+                class="recherche-ingredient"
+              />
+              <img
+                src="./assets/arrow.svg"
+             
+                alt="fleche"
+                ;
+              />
+              <ul class="liste-ingredients"></ul>
+            </div>
+
+            <div class="recherche-secondaire">
+              <input
+                type="search"
+                placeholder="Appareil"
+                class="recherche-appreil"
+              />
+              <img
+                src="./assets/arrow.svg"
+             
+                alt="fleche"
+              />
+              <ul class="liste-appareil liste"></ul>
+            </div>
+
+            <div class="recherche-secondaire">
+              <input
+                type="search"
+                placeholder="Ustensiles"
+                class="recherche-usentisiles"
+              />
+              <img
+                src="./assets/arrow.svg"
+              
+                alt="fleche"
+              />
+              <ul class="liste-ustensiles"></ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3 : Cartes -->
+        <section class="cartes"></section>
+      </main>
+    </div>
+
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
