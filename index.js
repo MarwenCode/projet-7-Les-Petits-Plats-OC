@@ -1,5 +1,10 @@
 import recipes from "./data/recipes.js";
 
+
+// Select the input element with the class "searchInput"
+const inputSearch = document.querySelector(".searchInput input");
+
+
 // create cartes
 const cartes = document.querySelector(".cartes");
 
@@ -64,3 +69,48 @@ const displayCartes = (recipes) => {
 displayCartes(recipes);
 
 console.log(recipes)
+
+//search with title/ingredients/ description
+
+
+
+
+// Select the input element with the class "searchInput"
+
+
+
+
+// Select the magnifying glass element
+const searchLoup = document.querySelector(".searchLoup");
+
+const searchRecip = () => {
+  const searchTerm = inputSearch.value.toLowerCase();
+  console.log('Search Term:', searchTerm);
+
+  const filterArray = recipes.filter((recette) => {
+    return recette.name.toLowerCase().includes(searchTerm);
+  });
+  console.log('Filtered Array:', filterArray);
+
+  cartes.innerHTML ="";
+
+  displayCartes(filterArray);
+};
+
+
+
+// Add a click event listener to the magnifying glass element
+searchLoup.addEventListener('click', searchRecip);
+
+
+
+
+
+
+// inputSearch.value.toLowerCase();
+// const filterArray = recipes.filter((recette) => {
+//   return recette.name.toLowerCase().includes(inputSearch.value.toLowerCase()) ||
+//   recette.ingredients.some((ingre) => ingre.ingredient.toLowerCase()
+//   .includes(inputSearch.value.toLowerCase())) ||
+//   recette.description.toLowerCase().includes(inputSearch.value.toLowerCase());
+//   });
