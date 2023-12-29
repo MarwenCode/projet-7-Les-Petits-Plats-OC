@@ -73,44 +73,83 @@ console.log(recipes)
 //search with title/ingredients/ description
 
 
-
-
-// Select the input element with the class "searchInput"
-
-
-
-
 // Select the magnifying glass element
 const searchLoup = document.querySelector(".searchLoup");
 
+const displayNoResult = (term) => {
+  const noResultMsg = document.createElement("p");
+  noResultMsg.classList.add("no-result");
+
+  noResultMsg.style.color = "black";
+  noResultMsg.style.textAlign = "center";
+  noResultMsg.style.fontSize = "28px";
+  noResultMsg.style.lineHeight = "1.5";
+  noResultMsg.style.padding = "20px";
+
+
+  noResultMsg.textContent = `Aucune recette ne contient "${term}". Vous pouvez essayer avec d'autres termes comme "tarte aux pommes", "poisson", etc.`;
+
+  cartes.appendChild(noResultMsg);
+  document.body.append(cartes);
+   
+};
+
 const searchRecip = () => {
-  const searchTerm = inputSearch.value.toLowerCase();
+  const searchTerm = inputSearch.value.toLowerCase().trim();
   console.log('Search Term:', searchTerm);
 
   const filterArray = recipes.filter((recette) => {
-    return recette.name.toLowerCase().includes(searchTerm);
+    const matchesSearch =
+      recette.name.toLowerCase().includes(searchTerm) ||
+      recette.ingredients.some((ingredient) =>
+        ingredient.ingredient.toLowerCase().includes(searchTerm)
+      ) ||
+      recette.description.toLowerCase().includes(searchTerm);
+
+    if (!matchesSearch) {
+      // Clear existing content
+      cartes.innerHTML = "";
+      displayNoResult(searchTerm);
+    }
+
+    return matchesSearch;
   });
+
   console.log('Filtered Array:', filterArray);
 
-  cartes.innerHTML ="";
+  // Clear existing content
+  // cartes.innerHTML = "";
 
+  // Display filtered recipes
   displayCartes(filterArray);
 };
-
 
 
 // Add a click event listener to the magnifying glass element
 searchLoup.addEventListener('click', searchRecip);
 
+//recherche secondaire
+const listIngredient = document.querySelector(".liste-ingredients");
+
+const listUstensiles = document.querySelector(".liste-ustensiles");
+
+const displayListSecondaire = () => {
+  let  listAppareil = document.querySelector(".liste-appareil");
+
+  recipes.forEach((reciep) => {
+   listAppareil = reciep.appliance
+
+    console.log(reciep.appliance);
+    
+  })
+}
+
+
+displayListSecondaire()
 
 
 
 
 
-// inputSearch.value.toLowerCase();
-// const filterArray = recipes.filter((recette) => {
-//   return recette.name.toLowerCase().includes(inputSearch.value.toLowerCase()) ||
-//   recette.ingredients.some((ingre) => ingre.ingredient.toLowerCase()
-//   .includes(inputSearch.value.toLowerCase())) ||
-//   recette.description.toLowerCase().includes(inputSearch.value.toLowerCase());
-//   });
+
+
