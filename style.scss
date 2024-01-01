@@ -1,356 +1,349 @@
 body {
-  margin: 0;
+    margin: 0;
 
-  background: #ededed;
+    background: #ededed;
 
-  // font-family: Manrope;
+    // font-family: Manrope;
 }
 
 .wrapper {
-  header {
-    position: relative;
+    header {
+        position: relative;
 
-    .backGround {
-      position: relative;
-
-      .backgroundImage {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-
-      .logo-image {
-        position: absolute;
-        top: 50px;
-
-        left: 50px;
-
-        z-index: 1;
-      }
-
-      .logo-cercle {
-        position: absolute;
-        top: 50px;
-
-        left: 250px;
-
-        z-index: 1;
-      }
-    }
-  }
-
-  main {
-    /* Style for the search container */
-    position: relative;
-
-    .searchContainer {
-      // background-color: #f5f5f5;
-      padding: 20px;
-      text-align: center;
-      background-color: transparent;
-
-      position: relative;
-
-      .search {
-        position: absolute;
-        margin-top: -450px;
-
-        .texte {
-          color: #ffd15b;
-          text-align: center;
-          font-family: Anton;
-          font-size: 44px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
-        }
-
-        /* Style for the search input */
-        .searchInput {
-          display: flex;
-          justify-content: center;
-          padding: 10px;
-
-          input {
-            width: 70%;
-            max-width: 600px;
-
-            padding: 10px;
-            border: 1px solid #ddd;
-
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 16px;
-          }
-        }
-
-        .searchLoup {
-          width: 20px;
-
-          height: 20px;
-
-          cursor: pointer;
-          margin-left: -60px;
-
-          border-radius: 10px;
-          background: #1b1b1b;
-          width: 37px;
-          height: 28px;
-          flex-shrink: 0;
-          flex-shrink: 0;
-          margin-bottom: 2px;
-          padding: 6px;
-        }
-      }
-    }
-
-    .filtre {
-        padding: 20px;
-        margin-top: 20px;
-        text-align: center;
-      
-        .element-select {
-          // height: 2px;
-          // background-color: #333;
-          // margin-bottom: 10px;
-        }
-      
-        .filtre_container {
-          display: flex;
-          justify-content: space-around;
-      
-          .recherche-secondaire {
-            flex: 1;
-            margin: 0 10px;
+        .backGround {
             position: relative;
-            display: flex;
-            align-items: center;
-      
-            .search-input-wrapper {
-              border-radius: 11px;
-              background: #fff;
-              width: 40%;
-              display: inline-flex;
-              padding: 17px 16px;
-              align-items: center;
-              gap: 63px;
-              position: relative;
-      
-              button {
-                background-color: white;
-                border: none;
-                border-radius: 5px;
-                padding: 10px;
-                cursor: pointer;
-                width: 60%;
-                box-sizing: border-box;
-              }
 
-              
-              .list-item-content {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                position: relative;
-                padding: 5px;
-                // width: 50%;
-                input {
-                  width: 100%;
-                  margin-right: 10px;
-                }
-      
-                .fas.fa-search {
-                  position: absolute;
-                  padding: 5px;
-                  cursor: pointer;
-                  margin-left: 76%;
-                  color:rgba(198, 198, 198, 1);
-                }
-              }
-      
-              .toggle-arrow {
+            .backgroundImage {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            .logo-image {
                 position: absolute;
-                right: 10px;
-                top: 50%;
-                transform: translateY(-50%);
-              }
-            }
-      
-            input {
-              width: 50%;
-              padding: 10px;
-              border: 1px solid #ddd;
-              border-radius: 5px;
-              box-sizing: border-box;
-      
-              input[type="text"] {
-                color: black;
-              }
-      
-              font-size: 16px;
-              font-style: normal;
-              font-weight: 600;
-            }
-      
-            ul {
-              list-style: none;
-              padding: 0;
-              margin: 10px 0 0;
-              background-color: #fff;
-            //   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-              position: absolute;
-              top: 50px;
-            
-              left: 0;
-            //   z-index: 1;
+                top: 50px;
 
-            li {
+                left: 50px;
+
+                z-index: 1;
+            }
+
+            .logo-cercle {
+                position: absolute;
+                top: 50px;
+
+                left: 250px;
+
+                z-index: 1;
+            }
+        }
+    }
+
+    main {
+        /* Style for the search container */
+        position: relative;
+
+        .searchContainer {
+            // background-color: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            background-color: transparent;
+
+            position: relative;
+
+            .search {
+                position: absolute;
+                margin-top: -450px;
+
+                .texte {
+                    color: #ffd15b;
+                    text-align: center;
+                    font-family: Anton;
+                    font-size: 44px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+
+                /* Style for the search input */
+                .searchInput {
+                    display: flex;
+                    justify-content: center;
+                    padding: 10px;
+
+                    input {
+                        width: 70%;
+                        max-width: 600px;
+
+                        padding: 10px;
+                        border: 1px solid #ddd;
+
+                        border-radius: 5px;
+                        box-sizing: border-box;
+                        font-size: 16px;
+                    }
+                }
+
+                .searchLoup {
+                    width: 20px;
+
+                    height: 20px;
+
+                    cursor: pointer;
+                    margin-left: -60px;
+
+                    border-radius: 10px;
+                    background: #1b1b1b;
+                    width: 37px;
+                    height: 28px;
+                    flex-shrink: 0;
+                    flex-shrink: 0;
+                    margin-bottom: 2px;
+                    padding: 6px;
+                }
+            }
+        }
+
+        .filtre {
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+          
+            .element-select {
+              // height: 2px;
+              // background-color: #333;
+              // margin-bottom: 10px;
+            }
+          
+            .filtre_container {
+              display: flex;
+              justify-content: space-around;
+          
+              .recherche-secondaire {
+                flex: 1;
+                margin: 0 10px;
+                position: relative;
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
-                position: relative;
-                padding: 10px;
-        
-                &:not(:first-child) {
+          
+                .search-input-wrapper {
+                  border-radius: 11px;
+                  background: #fff;
+                  width: 40%;
+                  display: inline-flex;
+                  padding: 17px 16px;
+                  align-items: center;
+                  gap: 10px;
+                  position: relative;
+          
                  
-                  color: red; 
+          
+                    button {
+                      background-color: white;
+                      border: none;
+                      border-radius: 5px;
+                      padding: 10px;
+                      cursor: pointer;
+                      width: 60%;
+                      box-sizing: border-box;
+                    }
+          
+                    .toggle-arrow {
+                      position: absolute;
+                      right: 10px;
+                      transform: translateY(-50%);
+                    }
+                  
+          
+              
+                
+                  ul {
+                    list-style: none;
+                    padding: 0;
+                    background-color: #fff;
+                    position: absolute;
+                    top: 100%; /* Adjust the position based on your layout */
+                    left: 0;
+                    display: none;
+                    max-height: 250px;
+                    overflow-y: scroll; /* Use 'scroll' instead of 'auto' */
+                    scrollbar-width: thin; /* Add this to set a thin scrollbar (for Firefox) */
+                    scrollbar-base-color: white; /* Add this to make the scrollbar transparent */
+
+                    &::-webkit-scrollbar {
+                        width: 0;
+                      }
+          
+                    &.hidden {
+                      display: block;
+                    }
+                  }
+          
+                  .list-item-content {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    position: relative;
+                    padding: 5px;
+          
+                    input {
+                      width: 100%;
+                      padding: 10px;
+                      border: 1px solid #ddd;
+                      border-radius: 5px;
+                      box-sizing: border-box;
+                    }
+          
+                    .fas.fa-search {
+                      cursor: pointer;
+                      color: rgba(198, 198, 198, 1);
+                      margin-left: 150px;
+                      position: absolute;
+                    }
+                  }
                 }
-
+          
+                ul li {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  position: relative;
+                  padding: 10px;
+                }
+          
+                .hidden {
+                  display: none;
+                }
+              }
             }
-             
-      
-            }
           }
-        }
-      }
-      
+          
 
-    /* Add these styles to your existing CSS file or create a new one */
+        /* Add these styles to your existing CSS file or create a new one */
 
-    .cartes {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      width: 80%;
-      justify-content: center;
-      margin-left: 10%;
-
-      .carte {
-        width: 300px;
-
-        margin: 10px;
-
-        padding: 10px;
-
-        border: 1px solid #ddd;
-
-        border-radius: 10px;
-
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-        .carte_image {
-          margin-bottom: 15px;
-
-          img {
-            aspect-ratio: 3/2;
-            object-fit: cover;
-            width: 100%;
-          }
-        }
-
-        .card-img-top {
-          width: 100%;
-
-          height: auto;
-
-          border-radius: 8px;
-        }
-
-        .title {
-          font-size: 18px;
-
-          font-weight: bold;
-
-          margin-bottom: 10px;
-          // padding: 5px;
-        }
-
-        .time {
-          color: #888;
-
-          font-size: 14px;
-        }
-
-        .description-section {
-          margin-top: 15px;
-        }
-
-        .description {
-          line-height: 1.5;
-
-          color: #555;
-
-          // overflow: hidden;
-          text-overflow: ellipsis;
-
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          -webkit-line-clamp: 4;
-
-          max-height: 80%;
-        }
-
-        .ingredients-section {
-          p {
-            color: #7a7a7a;
-            //   font-family: Manrope;
-            font-size: 12px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            letter-spacing: 1.08px;
-            text-transform: uppercase;
-          }
-
-          .ingredients {
+        .cartes {
             display: flex;
+            justify-content: space-between;
             flex-wrap: wrap;
-            width: 100%;
+            width: 80%;
+            justify-content: center;
+            margin-left: 10%;
 
-            .ingredients-info {
-              display: flex;
-              flex-direction: column;
-              width: 50%;
-              /* Each ingredient-info takes up 50% of the container width */
+            .carte {
+                width: 300px;
 
-              .title {
-                p {
-                  margin-bottom: 4px;
-                  /* Add margin between title and unit */
-                  color: rgba(27, 27, 27, 1);
+                margin: 10px;
+
+                padding: 10px;
+
+                border: 1px solid #ddd;
+
+                border-radius: 10px;
+
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+                .carte_image {
+                    margin-bottom: 15px;
+
+                    img {
+                        aspect-ratio: 3/2;
+                        object-fit: cover;
+                        width: 100%;
+                    }
                 }
-              }
 
-              .unit {
-                display: flex;
-                /* Display quantity and unit on the same line */
-                align-items: baseline;
-                /* Align elements to the baseline */
-                margin-top: -20px;
-                color: rgba(122, 122, 122, 1);
+                .card-img-top {
+                    width: 100%;
 
-                p {
+                    height: auto;
+
+                    border-radius: 8px;
                 }
 
-                span {
-                  color: rgba(122, 122, 122, 1);
+                .title {
+                    font-size: 18px;
+
+                    font-weight: bold;
+
+                    margin-bottom: 10px;
+                    // padding: 5px;
                 }
-              }
+
+                .time {
+                    color: #888;
+
+                    font-size: 14px;
+                }
+
+                .description-section {
+                    margin-top: 15px;
+                }
+
+                .description {
+                    line-height: 1.5;
+
+                    color: #555;
+
+                    // overflow: hidden;
+                    text-overflow: ellipsis;
+
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    -webkit-line-clamp: 4;
+
+                    max-height: 80%;
+                }
+
+                .ingredients-section {
+                    p {
+                        color: #7a7a7a;
+                        //   font-family: Manrope;
+                        font-size: 12px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                        letter-spacing: 1.08px;
+                        text-transform: uppercase;
+                    }
+
+                    .ingredients {
+                        display: flex;
+                        flex-wrap: wrap;
+                        width: 100%;
+
+                        .ingredients-info {
+                            display: flex;
+                            flex-direction: column;
+                            width: 50%;
+                            /* Each ingredient-info takes up 50% of the container width */
+
+                            .title {
+                                p {
+                                    margin-bottom: 4px;
+                                    /* Add margin between title and unit */
+                                    color: rgba(27, 27, 27, 1);
+                                }
+                            }
+
+                            .unit {
+                                display: flex;
+                                /* Display quantity and unit on the same line */
+                                align-items: baseline;
+                                /* Align elements to the baseline */
+                                margin-top: -20px;
+                                color: rgba(122, 122, 122, 1);
+
+                                p {}
+
+                                span {
+                                    color: rgba(122, 122, 122, 1);
+                                }
+                            }
+                        }
+                    }
+                }
             }
-          }
         }
-      }
     }
-  }
 }

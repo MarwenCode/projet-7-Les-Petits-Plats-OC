@@ -102,7 +102,7 @@ body {
   display: inline-flex;
   padding: 17px 16px;
   align-items: center;
-  gap: 63px;
+  gap: 10px;
   position: relative;
 }
 .wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper button {
@@ -114,6 +114,30 @@ body {
   width: 60%;
   box-sizing: border-box;
 }
+.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .toggle-arrow {
+  position: absolute;
+  right: 10px;
+  transform: translateY(-50%);
+}
+.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper ul {
+  list-style: none;
+  padding: 0;
+  background-color: #fff;
+  position: absolute;
+  top: 100%; /* Adjust the position based on your layout */
+  left: 0;
+  display: none;
+  max-height: 250px;
+  overflow-y: scroll; /* Use 'scroll' instead of 'auto' */
+  scrollbar-width: thin; /* Add this to set a thin scrollbar (for Firefox) */
+  scrollbar-base-color: white; /* Add this to make the scrollbar transparent */
+}
+.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper ul::-webkit-scrollbar {
+  width: 0;
+}
+.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper ul.hidden {
+  display: block;
+}
 .wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .list-item-content {
   display: flex;
   align-items: center;
@@ -123,42 +147,16 @@ body {
 }
 .wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .list-item-content input {
   width: 100%;
-  margin-right: 10px;
-}
-.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .list-item-content .fas.fa-search {
-  position: absolute;
-  padding: 5px;
-  cursor: pointer;
-  margin-left: 76%;
-  color: rgb(198, 198, 198);
-}
-.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .toggle-arrow {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.wrapper main .filtre .filtre_container .recherche-secondaire input {
-  width: 50%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-sizing: border-box;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
 }
-.wrapper main .filtre .filtre_container .recherche-secondaire input input[type=text] {
-  color: black;
-}
-.wrapper main .filtre .filtre_container .recherche-secondaire ul {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0 0;
-  background-color: #fff;
+.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .list-item-content .fas.fa-search {
+  cursor: pointer;
+  color: rgb(198, 198, 198);
+  margin-left: 150px;
   position: absolute;
-  top: 50px;
-  left: 0;
 }
 .wrapper main .filtre .filtre_container .recherche-secondaire ul li {
   display: flex;
@@ -167,8 +165,8 @@ body {
   position: relative;
   padding: 10px;
 }
-.wrapper main .filtre .filtre_container .recherche-secondaire ul li:not(:first-child) {
-  color: red;
+.wrapper main .filtre .filtre_container .recherche-secondaire .hidden {
+  display: none;
 }
 .wrapper main .cartes {
   display: flex;

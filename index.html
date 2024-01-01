@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Les petits plats</title>
-    <link  href="style.css"  rel="stylesheet"  type="text/css" />
-
+    <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
+
   <body>
     <div class="wrapper">
       <!-- Header -->
       <header>
-
         <div class="backGround">
-        <img src="./assets/homePage.png" alt="image background" class="backgroundImage">
-    
-        <img src="./assets/cercle.svg" alt="logo du site" class="logo-cercle" />
-            <img src="./assets/logo.svg" alt="logo du site" class="logo-image" />
-           
-          
+          <img
+            src="./assets/homePage.png"
+            alt="image background"
+            class="backgroundImage"
+          />
+
+          <img
+            src="./assets/cercle.svg"
+            alt="logo du site"
+            class="logo-cercle"
+          />
+          <img src="./assets/logo.svg" alt="logo du site" class="logo-image" />
         </div>
       </header>
 
@@ -32,16 +44,13 @@
         <section class="searchContainer">
           <div class="search">
             <div class="texte">
-                <p>
-                    CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
-                </p>
-
+              <p>
+                CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET
+                DÉLICIEUSES
+              </p>
             </div>
-            <div  class="searchInput">
-
-                <input 
-                
-             
+            <div class="searchInput">
+              <input
                 type="search"
                 placeholder="Rechercher une recette, un ingrédient, ..."
                 aria-label="Recherche dans le contenu du site"
@@ -51,96 +60,70 @@
                 src="./assets/loup.svg"
                 alt="loupe cliquable pour lancer la recherche"
               />
-
-
             </div>
-           
           </div>
         </section>
-        <!-- Section 2 : Recherches secondaires -->
-<!-- Section 2 : Recherches secondaires -->
-<!-- Section 2: Recherches secondaires -->
-<section class="filtre">
-  <div class="element-select"></div>
 
-  <div class="filtre_container">
-    <!-- Ingredient Search -->
-<!-- Ingredient Search -->
-<!-- Ingredient Search -->
-<div class="recherche-secondaire">
-  <div class="search-input-wrapper">
-    <button>Ingredient</button>
-    <i class="fas fa-chevron-down toggle-arrow"></i>
-    <ul class="liste-ingredients">
-      <li>
-        <div class="list-item-content">
-          <input
-            type="search"
-        
-            aria-label="Recherche par ingrédient"
-          />
-          <i class="fas fa-search loop"></i>
+        <div class="tags-container">
+
         </div>
-      </li>
-      <li>Ingredient 1</li>
-      <li>Ingredient 2</li>
-      <li>Ingredient 3</li>
-    </ul>
-  </div>
-</div>
-
-
-
-    <!-- Appareil Search -->
-    <div class="recherche-secondaire">
-      <div class="search-input-wrapper">
-        <button>Appareil</button>
-        <i class="fas fa-chevron-down toggle-arrow"></i>
-        <ul class="liste-ingredients">
-          <li>
-            <div class="list-item-content">
-              <input
-                type="search"
-            
-                aria-label="Recherche par ingrédient"
-              />
-              <i class="fas fa-search loop"></i>
+        <!-- Section 2 : Recherches secondaires -->
+        <!-- Section 2 : Recherches secondaires -->
+        <!-- Section 2: Recherches secondaires -->
+        <section class="filtre">
+          <div class="element-select"></div>
+        
+          <div class="filtre_container">
+            <!-- Appareil Search -->
+            <div class="recherche-secondaire">
+              <div class="search-input-wrapper">
+                <button class="showSearchSecAppareil">appareil</button>
+                <i class="fas fa-chevron-down toggle-arrow"></i>
+                <ul class="liste-appareil">
+        
+                  <li>
+                    <div class="list-item-content">
+                      <input type="search" aria-label="Recherche par ingrédient" class="inputAppareil" />
+                      <i class="fas fa-search loop"></i>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </li>
-          <li>Ingredient 1</li>
-          <li>Ingredient 2</li>
-          <li>Ingredient 3</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Ustensiles Search -->
-    <div class="recherche-secondaire">
-      <div class="search-input-wrapper">
-        <button>Ustensiles</button>
-        <i class="fas fa-chevron-down toggle-arrow"></i>
-        <ul class="liste-ingredients">
-          <li>
-            <div class="list-item-content">
-              <input
-                type="search"
-            
-                aria-label="Recherche par ingrédient"
-              />
-              <i class="fas fa-search loop"></i>
+        
+            <!-- Ingredient Search -->
+            <div class="recherche-secondaire">
+              <div class="search-input-wrapper">
+                <button class="showSearchSecIngredient">Ingredient</button>
+                <i class="fas fa-chevron-down toggle-arrow"></i>
+                <ul class="liste-ingredient">
+                  <li>
+                    <div class="list-item-content">
+                      <input type="search" aria-label="Recherche par ingrédient" />
+                      <i class="fas fa-search loop"></i>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </li>
-          <li>Ingredient 1</li>
-          <li>Ingredient 2</li>
-          <li>Ingredient 3</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
+        
+            <!-- Ustensiles Search -->
+            <div class="recherche-secondaire">
+              <div class="search-input-wrapper">
+                <button class="showSearchSecUstensiles">Ustensiles</button>
+                <i class="fas fa-chevron-down toggle-arrow"></i>
+                <ul class="liste-usentiles">
+                  <li>
+                    <div class="list-item-content">
+                      <input type="search" aria-label="Recherche par ingrédient" />
+                      <i class="fas fa-search loop"></i>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <!-- Section 3 : Cartes -->
         <section class="cartes"></section>
