@@ -4,6 +4,7 @@ body {
     background: #ededed;
 
     // font-family: Manrope;
+    // background-color: red;
 }
 
 .wrapper {
@@ -127,17 +128,15 @@ body {
                 align-items: center;
           
                 .search-input-wrapper {
-                  border-radius: 11px;
-                  background: #fff;
-                  width: 40%;
-                  display: inline-flex;
-                  padding: 17px 16px;
-                  align-items: center;
-                  gap: 10px;
-                  position: relative;
-          
-                 
-          
+                    border-radius: 11px;
+                    background: #fff;
+                    width: 40%;
+                    // display: inline-flex;
+                    padding: 17px 16px;
+                    align-items: center;
+                    gap: 10px;
+                    position: relative;
+                  
                     button {
                       background-color: white;
                       border: none;
@@ -147,73 +146,78 @@ body {
                       width: 60%;
                       box-sizing: border-box;
                     }
-          
+                  
                     .toggle-arrow {
                       position: absolute;
                       right: 10px;
                       transform: translateY(-50%);
                     }
                   
-          
-              
-                
-                  ul {
-                    list-style: none;
-                    padding: 0;
-                    background-color: #fff;
-                    position: absolute;
-                    top: 100%; /* Adjust the position based on your layout */
-                    left: 0;
-                    display: none;
-                    max-height: 250px;
-                    overflow-y: scroll; /* Use 'scroll' instead of 'auto' */
-                    scrollbar-width: thin; /* Add this to set a thin scrollbar (for Firefox) */
-                    scrollbar-base-color: white; /* Add this to make the scrollbar transparent */
-
-                    &::-webkit-scrollbar {
+                    ul {
+                      list-style: none;
+                      padding: 0;
+                      background-color: #fff;
+                      position: absolute;
+                      top: 100%;
+                      left: 0;
+                      display: none;
+                      max-height: 250px;
+                      overflow-y: scroll;
+                      scrollbar-width: thin;
+                      scrollbar-base-color: white;
+                  
+                      &::-webkit-scrollbar {
                         width: 0;
                       }
-          
-                    &.hidden {
-                      display: block;
+                  
+                      &.hidden {
+                        display: block;
+                      }
                     }
+                  
+                    .searchBar-appareil, .searchBar-ingredient {
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-between;
+                      position: relative;
+                      padding: 5px;
+                
+                  
+                      input {
+                        width: 100%;
+                        padding: 10px;
+                        border: 1px solid #ddd;
+                        border-radius: 5px;
+                        box-sizing: border-box;
+                        
+                      }
+
+                      &.hidden {
+                        display: none;
+                    }
+                  
+                      .fas.fa-search {
+                        cursor: pointer;
+                        color: rgba(198, 198, 198, 1);
+                        margin-left: 150px;
+                        position: absolute;
+                      }
+                    }
+
+                   
                   }
           
-                  .list-item-content {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    position: relative;
-                    padding: 5px;
+                // ul li {
+                //   display: flex;
+                //   align-items: center;
+                //   justify-content: space-between;
+                //   position: relative;
+                //   padding: 10px;
+                // }
           
-                    input {
-                      width: 100%;
-                      padding: 10px;
-                      border: 1px solid #ddd;
-                      border-radius: 5px;
-                      box-sizing: border-box;
-                    }
-          
-                    .fas.fa-search {
-                      cursor: pointer;
-                      color: rgba(198, 198, 198, 1);
-                      margin-left: 150px;
-                      position: absolute;
-                    }
-                  }
-                }
-          
-                ul li {
-                  display: flex;
-                  align-items: center;
-                  justify-content: space-between;
-                  position: relative;
-                  padding: 10px;
-                }
-          
-                .hidden {
-                  display: none;
-                }
+                // .hidden {
+                //   display: none;
+                // }
               }
             }
           }

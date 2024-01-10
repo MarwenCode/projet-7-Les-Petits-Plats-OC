@@ -17,7 +17,6 @@
     <title>Les petits plats</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
-
   <body>
     <div class="wrapper">
       <!-- Header -->
@@ -79,31 +78,24 @@
               <div class="search-input-wrapper">
                 <button class="showSearchSecAppareil">appareil</button>
                 <i class="fas fa-chevron-down toggle-arrow"></i>
-                <ul class="liste-appareil">
-        
-                  <li>
-                    <div class="list-item-content">
-                      <input type="search" aria-label="Recherche par ingrédient" class="inputAppareil" />
-                      <i class="fas fa-search loop"></i>
-                    </div>
-                  </li>
-                </ul>
+                <div class="searchBar-appareil">
+                  <input type="search" aria-label="Recherche par ingrédient" class="inputAppareil" />
+                  <i class="fas fa-search loop"></i>
+                </div>
+                <ul class="liste-appareil"></ul>
               </div>
             </div>
         
             <!-- Ingredient Search -->
             <div class="recherche-secondaire">
               <div class="search-input-wrapper">
-                <button class="showSearchSecIngredient">Ingredient</button>
+                <button class="showSearchSecAppareil">Ingredient</button>
                 <i class="fas fa-chevron-down toggle-arrow"></i>
-                <ul class="liste-ingredient">
-                  <li>
-                    <div class="list-item-content">
-                      <input type="search" aria-label="Recherche par ingrédient" />
-                      <i class="fas fa-search loop"></i>
-                    </div>
-                  </li>
-                </ul>
+                <div class="searchBar-ingredient">
+                  <input type="search" aria-label="Recherche par ingrédient" class="inputIngredients" />
+                  <i class="fas fa-search loop"></i>
+                </div>
+                <ul class="liste-appareil"></ul>
               </div>
             </div>
         
@@ -112,12 +104,17 @@
               <div class="search-input-wrapper">
                 <button class="showSearchSecUstensiles">Ustensiles</button>
                 <i class="fas fa-chevron-down toggle-arrow"></i>
-                <ul class="liste-usentiles">
+                <ul class="liste-ustensiles">
                   <li>
-                    <div class="list-item-content">
-                      <input type="search" aria-label="Recherche par ingrédient" />
-                      <i class="fas fa-search loop"></i>
-                    </div>
+                    <ul class="liste-ustensiles">
+                      <!-- <li>
+                        <div class="list-item-content">
+                          <input type="search" aria-label="Recherche par ustensile" class="inputUstensiles" />
+                          <i class="fas fa-search loop"></i>
+                        </div>
+                      </li> -->
+                    </ul>
+                    
                   </li>
                 </ul>
               </div>

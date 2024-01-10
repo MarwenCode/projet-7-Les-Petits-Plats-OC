@@ -99,7 +99,6 @@ body {
   border-radius: 11px;
   background: #fff;
   width: 40%;
-  display: inline-flex;
   padding: 17px 16px;
   align-items: center;
   gap: 10px;
@@ -124,13 +123,13 @@ body {
   padding: 0;
   background-color: #fff;
   position: absolute;
-  top: 100%; /* Adjust the position based on your layout */
+  top: 100%;
   left: 0;
   display: none;
   max-height: 250px;
-  overflow-y: scroll; /* Use 'scroll' instead of 'auto' */
-  scrollbar-width: thin; /* Add this to set a thin scrollbar (for Firefox) */
-  scrollbar-base-color: white; /* Add this to make the scrollbar transparent */
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-base-color: white;
 }
 .wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper ul::-webkit-scrollbar {
   width: 0;
@@ -138,35 +137,28 @@ body {
 .wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper ul.hidden {
   display: block;
 }
-.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .list-item-content {
+.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .searchBar-appareil, .wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .searchBar-ingredient {
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
   padding: 5px;
 }
-.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .list-item-content input {
+.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .searchBar-appareil input, .wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .searchBar-ingredient input {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-sizing: border-box;
 }
-.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .list-item-content .fas.fa-search {
+.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .searchBar-appareil.hidden, .wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .searchBar-ingredient.hidden {
+  display: none;
+}
+.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .searchBar-appareil .fas.fa-search, .wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .searchBar-ingredient .fas.fa-search {
   cursor: pointer;
   color: rgb(198, 198, 198);
   margin-left: 150px;
   position: absolute;
-}
-.wrapper main .filtre .filtre_container .recherche-secondaire ul li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  padding: 10px;
-}
-.wrapper main .filtre .filtre_container .recherche-secondaire .hidden {
-  display: none;
 }
 .wrapper main .cartes {
   display: flex;
