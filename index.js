@@ -199,26 +199,54 @@ console.log(originalLiElements)
 
 
 //filter Ingredients
+const uniqueIngredients = [...new Set(recipes.flatMap((recipe) => recipe.ingredients.map((ingredient) => ingredient.ingredient)))];
+console.log(uniqueIngredients);
 const showSearchSecIngreBtn = document.querySelector(".showSearchSecIngredient");
 
+const searchBarIngredients = document.querySelector(".searchBar-ingredient")
 const listeIngredients = document.querySelector(".liste-ingredient");
+const inputIngredients = document.querySelector(".inputIngredients");
 
-const displayListSecondaireIngredients = () => {
-  if (listeIngredients.classList.contains("hidden")) {
-    recipes.forEach((recipe) => {
-      recipe.ingredients.forEach((ingre) => {
-        const li = document.createElement("li");
-        li.textContent = ingre.ingredient;
-        listeIngredients.appendChild(li);
-      });
-    });
+const originalLiIngredients = []
+
+//show search bar of the ingredients lists
+showSearchSecIngreBtn.addEventListener("click", () => {
+  searchBarIngredients.classList.toggle("hidden");
+});
+
+//show ingredients list on the input
+inputIngredients.addEventListener("input", () => {
+  listeIngredients.classList.toggle("hidden");
+  const value = inputIngredients.value.toLowerCase();
+
+  // Clear existing content
+  listeIngredients.innerHTML = "";
+
+  // Filter ingredients
+  // Filter ingredients and remove duplicates
+  const filteredIngredients = [...new Set(uniqueIngredients.filter((ingredient) =>
+    ingredient.includes(value)
+  ))];
+
+  // Display filtered ingredients or no result message
+  if (filteredIngredients.length > 0) {
+    displayListSecondaireIngredients(filteredIngredients);
+  } else {
+    const li = document.createElement("li");
+    li.textContent = "No results found.";
+    listeIngredients.appendChild(li);
   }
+});
+
+const displayListSecondaireIngredients = (ingredients) => {
+  ingredients.forEach((ingredient) => {
+    const li = document.createElement("li");
+    li.textContent = ingredient;
+    listeIngredients.appendChild(li);
+    originalLiIngredients.push(li);
+  });
 };
 
-showSearchSecIngreBtn.addEventListener("click", () => {
-  listeIngredients.classList.toggle("hidden");
-  displayListSecondaireIngredients();
-});
 
 
 
