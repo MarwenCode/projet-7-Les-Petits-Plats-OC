@@ -67,56 +67,57 @@
 
         </div>
         <!-- Section 2 : Recherches secondaires -->
-        <!-- Section 2 : Recherches secondaires -->
-        <!-- Section 2: Recherches secondaires -->
+  
         <section class="filtre">
-          <div class="element-select"></div>
+        
         
           <div class="filtre_container">
             <!-- Appareil Search -->
             <div class="recherche-secondaire">
               <div class="search-input-wrapper">
-                <button class="showSearchSecAppareil">appareil</button>
-                <i class="fas fa-chevron-down toggle-arrow"></i>
-                <div class="searchBar-appareil">
+                <div class="btn-section-app">
+                  <button class="showSearchSecAppareil">appareil</button>
+                  <i class="fas fa-chevron-down arrow-app"></i>
+                </div>
+                <div class="searchBar-appareil hidden">
                   <input type="search" aria-label="Recherche par ingrédient" class="inputAppareil" />
                   <i class="fas fa-search loop"></i>
+                  <ul class="liste-appareil "></ul>
                 </div>
-                <ul class="liste-appareil"></ul>
               </div>
             </div>
+
+        
         
             <!-- Ingredient Search -->
             <div class="recherche-secondaire">
               <div class="search-input-wrapper">
+                <div class="btn-section-ingre ">
                 <button class="showSearchSecIngredient">Ingredient</button>
-                <i class="fas fa-chevron-down toggle-arrow"></i>
-                <div class="searchBar-ingredient">
+                <i class="fas fa-chevron-down arrow-ingre"></i>
+              </div>
+                <div class="searchBar-ingredient hidden">
                   <input type="search" aria-label="Recherche par ingrédient" class="inputIngredients" />
                   <i class="fas fa-search loop"></i>
+                  <ul class="liste-ingredient"></ul>
                 </div>
-                <ul class="liste-ingredient"></ul>
+              
               </div>
             </div>
         
             <!-- Ustensiles Search -->
             <div class="recherche-secondaire">
               <div class="search-input-wrapper">
+                <div class="btn-section">
                 <button class="showSearchSecUstensiles">Ustensiles</button>
                 <i class="fas fa-chevron-down toggle-arrow"></i>
-                <ul class="liste-ustensiles">
-                  <li>
-                    <ul class="liste-ustensiles">
-                      <!-- <li>
-                        <div class="list-item-content">
-                          <input type="search" aria-label="Recherche par ustensile" class="inputUstensiles" />
-                          <i class="fas fa-search loop"></i>
-                        </div>
-                      </li> -->
-                    </ul>
-                    
-                  </li>
-                </ul>
+              </div>
+                <div class="searchBar-ustensiles">
+                  <input type="search" aria-label="Recherche par ingrédient" class="inputUstensiles" />
+                  <i class="fas fa-search loop"></i>
+                  <ul class="liste-ustensiles"></ul>
+                </div>
+              
               </div>
             </div>
           </div>
