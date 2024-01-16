@@ -36,6 +36,7 @@ body {
                 left: 250px;
 
                 z-index: 1;
+
             }
         }
     }
@@ -70,6 +71,7 @@ body {
                 .searchInput {
                     display: flex;
                     justify-content: center;
+                    align-items: center;
                     padding: 10px;
 
                     input {
@@ -86,21 +88,21 @@ body {
                 }
 
                 .searchLoup {
-                    width: 20px;
+                    width: 15px;
 
-                    height: 20px;
+                    height: 22px;
 
                     cursor: pointer;
-                    margin-left: -60px;
+                    margin-left: -50px;
 
                     border-radius: 10px;
                     background: #1b1b1b;
-                    width: 37px;
-                    height: 28px;
-                    flex-shrink: 0;
-                    flex-shrink: 0;
+                    width: 30px;
+
+
                     margin-bottom: 2px;
                     padding: 6px;
+
                 }
             }
         }
@@ -113,12 +115,17 @@ body {
             .filtre_container {
                 display: flex;
                 justify-content: space-around;
+                // background-color: red;
+                width: 50%;
+                margin-left: 130px;
 
                 .recherche-secondaire {
                     flex: 1;
                     margin: 0 10px;
                     display: flex;
                     align-items: center;
+
+
 
                     .search-input-wrapper {
                         // border-radius: 11px;
@@ -128,8 +135,12 @@ body {
                         position: relative;
                         flex-direction: column;
                         border-radius: 5%;
+                        // width: 210px;
+                        height: 50px;
 
-                        .btn-section-app, .btn-section-ingre {
+
+                        .btn-section-app,
+                        .btn-section-ingre {
                             display: flex;
                             padding: 10px;
                             width: 180px;
@@ -232,23 +243,24 @@ body {
 
         .cartes {
             display: flex;
-            justify-content: space-between;
+            // justify-content: space-between;
             flex-wrap: wrap;
-            width: 80%;
+            width: 95%;
             justify-content: center;
-            margin-left: 10%;
             margin-top: 60px;
 
             .carte {
-                width: 300px;
+                width: 350px;
+                margin-left: 55px;
 
-                margin: 10px;
 
-                padding: 10px;
+                // padding: 10px;
+                margin-bottom: 30px;
 
                 border: 1px solid #ddd;
 
-                border-radius: 10px;
+                // border-radius: 10px;
+                border-radius: 8px 8px 0px 0px;
 
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
@@ -267,92 +279,101 @@ body {
 
                     height: auto;
 
-                    border-radius: 8px;
+                    border-radius: 8px 8px 0px 0px;
                 }
 
-                .title {
-                    font-size: 18px;
+                .text {
 
-                    font-weight: bold;
+                    padding: 10px;
 
-                    margin-bottom: 10px;
-                    // padding: 5px;
-                }
-
-                .time {
-                    color: #888;
-
-                    font-size: 14px;
-                }
-
-                .description-section {
-                    margin-top: 15px;
-                }
-
-                .description {
-                    line-height: 1.5;
-
-                    color: #555;
-
-                    // overflow: hidden;
-                    text-overflow: ellipsis;
-
-                    display: -webkit-box;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
-                    -webkit-line-clamp: 4;
-
-                    max-height: 80%;
-                }
-
-                .ingredients-section {
-                    p {
-                        color: #7a7a7a;
-                        //   font-family: Manrope;
-                        font-size: 12px;
-                        font-style: normal;
-                        font-weight: 700;
-                        line-height: normal;
-                        letter-spacing: 1.08px;
-                        text-transform: uppercase;
+                    .title {
+                        font-size: 18px;
+    
+                        font-weight: bold;
+    
+                        margin-bottom: 10px;
+                        // padding: 5px;
                     }
-
-                    .ingredients {
-                        display: flex;
-                        flex-wrap: wrap;
-                        width: 100%;
-
-                        .ingredients-info {
+    
+                    .time {
+                        color: #888;
+    
+                        font-size: 14px;
+                    }
+    
+                    .description-section {
+                        margin-top: 15px;
+                    }
+    
+                    .description {
+                        line-height: 1.5;
+    
+                        color: #555;
+    
+                        // overflow: hidden;
+                        text-overflow: ellipsis;
+    
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        -webkit-line-clamp: 4;
+    
+                        max-height: 80%;
+                    }
+    
+                    .ingredients-section {
+                        p {
+                            color: #7a7a7a;
+                            //   font-family: Manrope;
+                            font-size: 12px;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: normal;
+                            letter-spacing: 1.08px;
+                            text-transform: uppercase;
+                        }
+    
+                        .ingredients {
                             display: flex;
-                            flex-direction: column;
-                            width: 50%;
-                            /* Each ingredient-info takes up 50% of the container width */
-
-                            .title {
-                                p {
-                                    margin-bottom: 4px;
-                                    /* Add margin between title and unit */
-                                    color: rgba(27, 27, 27, 1);
-                                }
-                            }
-
-                            .unit {
+                            flex-wrap: wrap;
+                            width: 100%;
+    
+                            .ingredients-info {
                                 display: flex;
-                                /* Display quantity and unit on the same line */
-                                align-items: baseline;
-                                /* Align elements to the baseline */
-                                margin-top: -20px;
-                                color: rgba(122, 122, 122, 1);
-
-                                p {}
-
-                                span {
+                                flex-direction: column;
+                                width: 50%;
+                                /* Each ingredient-info takes up 50% of the container width */
+    
+                                .title {
+                                    p {
+                                        margin-bottom: 4px;
+                                        /* Add margin between title and unit */
+                                        color: rgba(27, 27, 27, 1);
+                                    }
+                                }
+    
+                                .unit {
+                                    display: flex;
+                                    /* Display quantity and unit on the same line */
+                                    align-items: baseline;
+                                    /* Align elements to the baseline */
+                                    margin-top: -20px;
                                     color: rgba(122, 122, 122, 1);
+    
+                                    p {}
+    
+                                    span {
+                                        color: rgba(122, 122, 122, 1);
+                                    }
                                 }
                             }
                         }
                     }
+
+
                 }
+
+         
             }
         }
     }

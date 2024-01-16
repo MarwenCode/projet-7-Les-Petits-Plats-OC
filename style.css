@@ -54,6 +54,7 @@ body {
 .wrapper main .searchContainer .search .searchInput {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 10px;
 }
 .wrapper main .searchContainer .search .searchInput input {
@@ -66,16 +67,13 @@ body {
   font-size: 16px;
 }
 .wrapper main .searchContainer .search .searchLoup {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 22px;
   cursor: pointer;
-  margin-left: -60px;
+  margin-left: -50px;
   border-radius: 10px;
   background: #1b1b1b;
-  width: 37px;
-  height: 28px;
-  flex-shrink: 0;
-  flex-shrink: 0;
+  width: 30px;
   margin-bottom: 2px;
   padding: 6px;
 }
@@ -87,6 +85,8 @@ body {
 .wrapper main .filtre .filtre_container {
   display: flex;
   justify-content: space-around;
+  width: 50%;
+  margin-left: 130px;
 }
 .wrapper main .filtre .filtre_container .recherche-secondaire {
   flex: 1;
@@ -101,13 +101,16 @@ body {
   position: relative;
   flex-direction: column;
   border-radius: 5%;
+  height: 50px;
 }
-.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .btn-section-app, .wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .btn-section-ingre {
+.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .btn-section-app,
+.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .btn-section-ingre {
   display: flex;
   padding: 10px;
   width: 180px;
 }
-.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .btn-section-app button, .wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .btn-section-ingre button {
+.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .btn-section-app button,
+.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .btn-section-ingre button {
   border: none;
   cursor: pointer;
   border-radius: 20px;
@@ -182,19 +185,17 @@ body {
 }
 .wrapper main .cartes {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
-  width: 80%;
+  width: 95%;
   justify-content: center;
-  margin-left: 10%;
   margin-top: 60px;
 }
 .wrapper main .cartes .carte {
-  width: 300px;
-  margin: 10px;
-  padding: 10px;
+  width: 350px;
+  margin-left: 55px;
+  margin-bottom: 30px;
   border: 1px solid #ddd;
-  border-radius: 10px;
+  border-radius: 8px 8px 0px 0px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .wrapper main .cartes .carte .carte_image {
@@ -208,21 +209,24 @@ body {
 .wrapper main .cartes .carte .card-img-top {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 8px 8px 0px 0px;
 }
-.wrapper main .cartes .carte .title {
+.wrapper main .cartes .carte .text {
+  padding: 10px;
+}
+.wrapper main .cartes .carte .text .title {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
 }
-.wrapper main .cartes .carte .time {
+.wrapper main .cartes .carte .text .time {
   color: #888;
   font-size: 14px;
 }
-.wrapper main .cartes .carte .description-section {
+.wrapper main .cartes .carte .text .description-section {
   margin-top: 15px;
 }
-.wrapper main .cartes .carte .description {
+.wrapper main .cartes .carte .text .description {
   line-height: 1.5;
   color: #555;
   text-overflow: ellipsis;
@@ -232,7 +236,7 @@ body {
   -webkit-line-clamp: 4;
   max-height: 80%;
 }
-.wrapper main .cartes .carte .ingredients-section p {
+.wrapper main .cartes .carte .text .ingredients-section p {
   color: #7a7a7a;
   font-size: 12px;
   font-style: normal;
@@ -241,23 +245,23 @@ body {
   letter-spacing: 1.08px;
   text-transform: uppercase;
 }
-.wrapper main .cartes .carte .ingredients-section .ingredients {
+.wrapper main .cartes .carte .text .ingredients-section .ingredients {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
 }
-.wrapper main .cartes .carte .ingredients-section .ingredients .ingredients-info {
+.wrapper main .cartes .carte .text .ingredients-section .ingredients .ingredients-info {
   display: flex;
   flex-direction: column;
   width: 50%;
   /* Each ingredient-info takes up 50% of the container width */
 }
-.wrapper main .cartes .carte .ingredients-section .ingredients .ingredients-info .title p {
+.wrapper main .cartes .carte .text .ingredients-section .ingredients .ingredients-info .title p {
   margin-bottom: 4px;
   /* Add margin between title and unit */
   color: rgb(27, 27, 27);
 }
-.wrapper main .cartes .carte .ingredients-section .ingredients .ingredients-info .unit {
+.wrapper main .cartes .carte .text .ingredients-section .ingredients .ingredients-info .unit {
   display: flex;
   /* Display quantity and unit on the same line */
   align-items: baseline;
@@ -265,7 +269,7 @@ body {
   margin-top: -20px;
   color: rgb(122, 122, 122);
 }
-.wrapper main .cartes .carte .ingredients-section .ingredients .ingredients-info .unit span {
+.wrapper main .cartes .carte .text .ingredients-section .ingredients .ingredients-info .unit span {
   color: rgb(122, 122, 122);
 }
 

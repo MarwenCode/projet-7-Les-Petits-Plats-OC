@@ -42,6 +42,7 @@ const displayCartes = (recipes) => {
           alt="Illustration plat"
         />
       </div>
+      <div class="text">
       <div class="title">
         <h2>${recipe.name}</h2>
       </div>
@@ -56,6 +57,7 @@ const displayCartes = (recipes) => {
         <div class="ingredients">
           ${listeIngredients}
         </div>
+      </div>
       </div>
     `;
 
@@ -122,6 +124,10 @@ const searchRecip = () => {
 // Add a click event listener to the magnifying glass element
 searchLoup.addEventListener("click", searchRecip);
 inputSearch.addEventListener("input", searchRecip);
+
+
+
+
 
 //recherche secondaire//
 
@@ -213,18 +219,24 @@ btnSectionIngre.addEventListener("click", () => {
 
 //show ingredients list on the input
 inputIngredients.addEventListener("input", () => {
-  const value = inputIngredients.value.toLowerCase();
+  const value = inputIngredients.value.toLowerCase().trim();
 
   // Clear existing content
   listeIngredients.innerHTML = "";
 
   // Filter ingredients
   // Filter ingredients and remove duplicates
-  const filteredIngredients = [
-    ...new Set(
-      uniqueIngredients.filter((ingredient) => ingredient.includes(value))
-    ),
-  ];
+  // const filteredIngredients = [
+  //   ...new Set(
+  //     uniqueIngredients.filter((ingredient) => ingredient.includes(value))
+  //   ),
+  // ];
+
+
+   // Filter appliances
+   const filteredIngredients = uniqueIngredients.filter((ingredient) => {
+    return ingredient.toLowerCase().includes(value);
+  });
 
   // Display filtered ingredients or no result message
   if (filteredIngredients.length > 0) {
@@ -234,6 +246,8 @@ inputIngredients.addEventListener("input", () => {
     li.textContent = "No results found.";
     listeIngredients.appendChild(li);
   }
+  console.log(uniqueIngredients)
+  console.log(filteredIngredients)
 });
 
 const displayListSecondaireIngredients = (ingredients) => {
@@ -245,6 +259,15 @@ const displayListSecondaireIngredients = (ingredients) => {
     originalLiIngredients.push(li);
   });
 };
+
+
+
+
+
+
+
+
+
 
 // Filter ustensiles
 const uniqueUstensiles = [
@@ -260,10 +283,10 @@ const listeUstensiles = document.querySelector(".liste-ustensiles");
 // const tagsContainer = document.querySelector(".tags-container");
 const originalLiElementsUstensiles = [];
 
-showSearchSecUsentBtn.addEventListener("click", () => {
-  listeUstensiles.classList.toggle("hidden");
-  displayListSecondaireUstensiles();
-});
+// showSearchSecUsentBtn.addEventListener("click", () => {
+//   listeUstensiles.classList.toggle("hidden");
+//   displayListSecondaireUstensiles();
+// });
 
 const displayListSecondaireUstensiles = () => {
   if (listeUstensiles.classList.contains("hidden")) {
@@ -304,6 +327,9 @@ const displayListSecondaireUstensiles = () => {
     });
   }
 };
+
+
+
 
 //createTag function
 
@@ -373,6 +399,11 @@ const createTag = (tagContent, filterProperty) => {
   inputIngredients.value = "";
   inputAppareil.value = "";
 };
+
+
+
+
+
 
 // Filter recipes based on the selected tags
 // const filterRecipes = () => {
