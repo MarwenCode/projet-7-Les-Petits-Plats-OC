@@ -6,18 +6,20 @@ const inputSearch = document.querySelector(".searchInput input");
 // create cartes
 const cartes = document.querySelector(".cartes");
 
+const tagsContainer = document.querySelector(".tags-container");
+
 const displayCartes = (recipes) => {
   for (let i = 0; i < recipes.length; i++) {
     let recipe = recipes[i];
 
     let carte = document.createElement("article");
     carte.classList.add("carte");
+    carte.recipe = recipe;
 
-    // Assuming 'ingredients' is an array in each recipe
     let listeIngredients = "";
     for (let j = 0; j < recipe.ingredients.length; j++) {
       const ingredient = recipe.ingredients[j];
-      // Check if quantity and unit are present, otherwise, display an empty string
+
       const quantity = ingredient.quantity
         ? `<p>${ingredient.quantity}</p>`
         : "";
@@ -90,46 +92,248 @@ const displayNoResult = (term) => {
   // document.body.append(cartes);
 };
 
-const searchRecip = () => {
+const searchRecipes = () => {
   const searchTerm = inputSearch.value.toLowerCase().trim();
-  console.log("Search Term:", searchTerm);
+  const selectedTags = Array.from(tagsContainer.querySelectorAll(".tag")).map(
+    (tag) => tag.textContent.toLowerCase()
+  );
 
-  // Check if the search term is at least 3 characters long
-  if (searchTerm.length >= 3) {
-    const filterArray = recipes.filter((recette) => {
-      const matchesSearch =
+  console.log("Search Term:", searchTerm);
+  console.log("Selected Tags:", selectedTags);
+
+  const filterArray = recipes.filter((recette) => {
+    const matchesSearch =
+      searchTerm.length >= 3 && (
         recette.name.toLowerCase().includes(searchTerm) ||
         recette.ingredients.some((ingredient) =>
           ingredient.ingredient.toLowerCase().includes(searchTerm)
         ) ||
-        recette.description.toLowerCase().includes(searchTerm);
+        recette.description.toLowerCase().includes(searchTerm)
+      );
+  
+    // const matchesTags = selectedTags.length === 0 || selectedTags.every(tag => recette.tags.includes(tag));
+  
+    return matchesSearch ;
+  });
 
-      return matchesSearch;
-    });
+  console.log("Filtered Array:", filterArray);
 
-    console.log("Filtered Array:", filterArray);
+  cartes.innerHTML = "";
 
-    // Clear existing content
-    cartes.innerHTML = "";
-
-    // Display filtered recipes or no result message
-    if (filterArray.length > 0) {
-      displayCartes(filterArray);
-    } else {
-      displayNoResult(searchTerm);
-    }
+  if (filterArray.length > 0) {
+    displayCartes(filterArray);
+  } else {
+    displayNoResult(searchTerm);
   }
 };
 
 // Add a click event listener to the magnifying glass element
-searchLoup.addEventListener("click", searchRecip);
-inputSearch.addEventListener("input", searchRecip);
-
-
-
-
+searchLoup.addEventListener("click", searchRecipes);
+inputSearch.addEventListener("input", searchRecipes);
 
 //recherche secondaire//
+
+//filter Ingredients
+const uniqueIngredients = [
+  ...new Set(
+    recipes.flatMap((recipe) =>
+      recipe.ingredients.map((ingredient) => ingredient.ingredient)
+    )
+  ),
+];
+console.log(uniqueIngredients);
+const showSearchSecIngreBtn = document.querySelector(
+  ".showSearchSecIngredient"
+);
+
+const searchBarIngredients = document.querySelector(".searchBar-ingredient");
+const listeIngredients = document.querySelector(".liste-ingredient");
+const inputIngredients = document.querySelector(".inputIngredients");
+const toggleArrowIngre = document.querySelector(".arrow-ingre");
+const btnSectionIngre = document.querySelector(".btn-section-ingre");
+
+const originalLiIngredients = [];
+
+//show search bar of the ingredients lists
+btnSectionIngre.addEventListener("click", () => {
+  searchBarIngredients.classList.toggle("hidden");
+
+  listeIngredients.classList.toggle("hidden");
+  toggleArrowIngre.classList.toggle("fa-chevron-down");
+  toggleArrowIngre.classList.toggle("fa-chevron-up");
+});
+
+//show ingredients list on the input
+inputIngredients.addEventListener("input", () => {
+  const value = inputIngredients.value.toLowerCase().trim();
+
+  // Clear existing content
+  listeIngredients.innerHTML = "";
+
+  const filteredIngredients = uniqueIngredients.filter((ingredient) => {
+    return ingredient.toLowerCase().includes(value);
+  });
+
+  if (filteredIngredients.length > 0) {
+    displayListSecondaireIngredients(filteredIngredients);
+  } else {
+    const li = document.createElement("li");
+    li.textContent = "No results found.";
+    listeIngredients.appendChild(li);
+  }
+  console.log(uniqueIngredients);
+  console.log(filteredIngredients);
+});
+
+const displayListSecondaireIngredients = (ingredients) => {
+  ingredients.forEach((ingredient) => {
+    const li = document.createElement("li");
+    li.textContent = ingredient;
+    li.addEventListener("click", () => createTag(ingredient, "ingredients"));
+    listeIngredients.appendChild(li);
+    originalLiIngredients.push(li);
+  });
+};
+
+//createTag function
+
+//createTag function
+
+// ...
+
+// Function to create a tag element
+// Function to create a tag element
+// Function to create a tag element
+const createTagElement = (tagContent) => {
+  const tag = document.createElement("span");
+  tag.textContent = tagContent;
+  tag.style.display = "inline-flex";
+  tag.style.padding = "17px 18px";
+  tag.style.alignItems = "center";
+  tag.style.gap = "60px";
+  tag.style.marginLeft = "10px";
+  tag.style.borderRadius = "10px";
+  tag.style.background = "#FFD15B";
+  tag.style.width = "10%";
+  tag.classList.add("tag");
+  return tag;
+};
+
+// Function to create a delete button for the tag
+const createDeleteButton = () => {
+  const deleteTag = document.createElement("span");
+  const deleteIcon = document.createElement("i");
+  deleteIcon.classList.add("fas", "fa-times");
+  deleteIcon.style.cursor = "pointer";
+  deleteIcon.style.marginLeft = "-30px";
+  deleteTag.appendChild(deleteIcon);
+  return deleteTag;
+};
+
+// Function to apply tag filter and update displayed recipes
+const applyTagFilter = (tagContent, filterProperty, displayedRecipes) => {
+  return displayedRecipes.filter(displayedRecipe => {
+    switch (filterProperty) {
+      case "ingredients":
+        return displayedRecipe.ingredients.some(item =>
+          item.ingredient.toLowerCase().includes(tagContent.toLowerCase())
+        );
+      case "appliance":
+        return displayedRecipe.appliance.toLowerCase().includes(tagContent.toLowerCase());
+      default:
+        return true; // No specific filter property, do nothing
+    }
+  });
+};
+
+// Main createTag function
+const createTag = (tagContent, filterProperty) => {
+  const tag = createTagElement(tagContent);
+  const deleteTag = createDeleteButton();
+  tagsContainer.appendChild(tag);
+  tagsContainer.appendChild(deleteTag);
+
+  const displayedRecipes = Array.from(cartes.children).map(carte => carte.recipe);
+  console.log("Displayed Recipes (Before Tag Filter):", displayedRecipes);
+
+  const updatedRecipes = recipes.filter(recipe =>
+    applyTagFilter(tagContent, filterProperty, [recipe]).length > 0
+  );
+
+  const combinedRecipes = [...displayedRecipes, ...updatedRecipes];
+
+  console.log("Combined Recipes:", combinedRecipes);
+
+  cartes.innerHTML = "";
+  displayCartes(combinedRecipes);
+
+  deleteTag.addEventListener("click", () => {
+    tag.remove();
+    deleteTag.remove();
+    cartes.innerHTML = "";
+    displayCartes(displayedRecipes); // Re-display the original recipes
+  });
+
+  inputIngredients.value = "";
+  inputAppareil.value = "";
+};
+
+
+
+
+
+
+
+
+
+
+// ...
+
+
+// ...
+
+
+
+// ...
+
+
+
+//if search bar displayed a filter, the tag creation should verify is the a filter existe and add
+//to the result the new tag creation filter, means the user should use 2 options to filter
+
+//create the function to handle 2 options
+// ...
+
+
+
+// Clone the original recipes to maintain the original state
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //filter Appareil
 
@@ -141,7 +345,7 @@ const searchBarAppareil = document.querySelector(".searchBar-appareil");
 const btnSectionApp = document.querySelector(".btn-section-app");
 const listeAppareil = document.querySelector(".liste-appareil");
 const inputAppareil = document.querySelector(".inputAppareil");
-const tagsContainer = document.querySelector(".tags-container");
+
 const toggleArrowApp = document.querySelector(".arrow-app");
 
 const originalLiElements = [];
@@ -186,88 +390,6 @@ const displayListSecondaireAppareil = (appliances) => {
 };
 
 console.log(originalLiElements);
-
-//filter Ingredients
-const uniqueIngredients = [
-  ...new Set(
-    recipes.flatMap((recipe) =>
-      recipe.ingredients.map((ingredient) => ingredient.ingredient)
-    )
-  ),
-];
-console.log(uniqueIngredients);
-const showSearchSecIngreBtn = document.querySelector(
-  ".showSearchSecIngredient"
-);
-
-const searchBarIngredients = document.querySelector(".searchBar-ingredient");
-const listeIngredients = document.querySelector(".liste-ingredient");
-const inputIngredients = document.querySelector(".inputIngredients");
-const toggleArrowIngre = document.querySelector(".arrow-ingre");
-const btnSectionIngre = document.querySelector(".btn-section-ingre");
-
-const originalLiIngredients = [];
-
-//show search bar of the ingredients lists
-btnSectionIngre.addEventListener("click", () => {
-  searchBarIngredients.classList.toggle("hidden");
-
-  listeIngredients.classList.toggle("hidden");
-  toggleArrowIngre.classList.toggle("fa-chevron-down");
-  toggleArrowIngre.classList.toggle("fa-chevron-up");
-});
-
-//show ingredients list on the input
-inputIngredients.addEventListener("input", () => {
-  const value = inputIngredients.value.toLowerCase().trim();
-
-  // Clear existing content
-  listeIngredients.innerHTML = "";
-
-  // Filter ingredients
-  // Filter ingredients and remove duplicates
-  // const filteredIngredients = [
-  //   ...new Set(
-  //     uniqueIngredients.filter((ingredient) => ingredient.includes(value))
-  //   ),
-  // ];
-
-
-   // Filter appliances
-   const filteredIngredients = uniqueIngredients.filter((ingredient) => {
-    return ingredient.toLowerCase().includes(value);
-  });
-
-  // Display filtered ingredients or no result message
-  if (filteredIngredients.length > 0) {
-    displayListSecondaireIngredients(filteredIngredients);
-  } else {
-    const li = document.createElement("li");
-    li.textContent = "No results found.";
-    listeIngredients.appendChild(li);
-  }
-  console.log(uniqueIngredients)
-  console.log(filteredIngredients)
-});
-
-const displayListSecondaireIngredients = (ingredients) => {
-  ingredients.forEach((ingredient) => {
-    const li = document.createElement("li");
-    li.textContent = ingredient;
-    li.addEventListener("click", () => createTag(ingredient, "ingredients"));
-    listeIngredients.appendChild(li);
-    originalLiIngredients.push(li);
-  });
-};
-
-
-
-
-
-
-
-
-
 
 // Filter ustensiles
 const uniqueUstensiles = [
@@ -328,82 +450,7 @@ const displayListSecondaireUstensiles = () => {
   }
 };
 
-
-
-
-//createTag function
-
-const createTag = (tagContent, filterProperty) => {
-  const tag = document.createElement("span");
-  const deleteTag = document.createElement("span");
-  const deleteIcon = document.createElement("i");
-  tag.textContent = tagContent;
-
-  // Apply styles to the tag
-  tag.style.display = "inline-flex";
-  tag.style.padding = "17px 18px";
-  tag.style.alignItems = "center";
-  tag.style.gap = "60px";
-  tag.style.marginLeft = "10px";
-  tag.style.borderRadius = "10px";
-  tag.style.background = "#FFD15B";
-
-  // Apply styles to the delete icon
-  deleteIcon.classList.add("fas", "fa-times");
-  deleteIcon.style.cursor = "pointer";
-
-  // Add the delete icon to the delete tag
-  deleteTag.appendChild(deleteIcon);
-
-  tagsContainer.appendChild(tag);
-  tagsContainer.appendChild(deleteTag);
-
-  let filteredRecipes;
-
-  // Filter recipes based on the selected tag
-  switch (filterProperty) {
-    case "ingredients":
-      filteredRecipes = recipes.filter((recipe) => {
-        return recipe.ingredients.some((item) =>
-          item.ingredient.toLowerCase().includes(tagContent.toLowerCase())
-        );
-      });
-      break;
-    case "appliance":
-      filteredRecipes = recipes.filter((recipe) => {
-        return recipe.appliance
-          .toLowerCase()
-          .includes(tagContent.toLowerCase());
-      });
-      break;
-    default:
-      filteredRecipes = recipes;
-  }
-
-  cartes.innerHTML = "";
-  // Display the filtered recipes
-  displayCartes(filteredRecipes);
-
-  // Add an event listener to the delete tag to remove the tag and filter the recipes
-  deleteTag.addEventListener("click", () => {
-    tag.remove();
-    deleteTag.remove();
-    cartes.innerHTML = "";
-    displayCartes(recipes);
-  });
-
-  // Show the ul list and clear the input when a tag is created
-  // listeUstensiles.classList.remove("hidden");
-  // listeAppareil.classList.remove("hidden");
-  // listeIngredients.classList.remove("hidden");
-  inputIngredients.value = "";
-  inputAppareil.value = "";
-};
-
-
-
-
-
+// function pour filtrer la recherche principale et la recherche secondaire avec les tags:
 
 // Filter recipes based on the selected tags
 // const filterRecipes = () => {
