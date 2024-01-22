@@ -247,8 +247,7 @@ const applyTagFilter = (tagContent, filterProperty, displayedRecipes) => {
   });
 };
 
-let displayedRecipes = []; // Déclaration de la variable displayedRecipes
-
+// Fonction principale createTag
 
 const createTag = (tagContent, filterProperty) => {
   const tag = createTagElement(tagContent);
@@ -256,64 +255,46 @@ const createTag = (tagContent, filterProperty) => {
   tagsContainer.appendChild(tag);
   tagsContainer.appendChild(deleteTag);
 
-  let filteredRecipes = [];
-
   // Si l'utilisateur n'a pas effectué de recherche principale
   if (inputSearch.value === "") {
     // Filtrer les recettes en fonction du tag sélectionné
-    filteredRecipes = applyTagFilter(tagContent, filterProperty, recipes);
-
-    console.log("Recettes filtrées par le tag courant :", filteredRecipes);
-
-    // Ajouter les recettes filtrées aux recettes affichées
-    displayedRecipes = [...displayedRecipes, ...filteredRecipes]; // Utiliser l'opérateur spread pour combiner les tableaux
-
-    // Afficher les recettes combinées
+    const filteredRecipes = applyTagFilter(tagContent, filterProperty, recipes);
     cartes.innerHTML = "";
-    displayCards(displayedRecipes);
+    displayCards(filteredRecipes);
     return; // Sortir de la fonction si seul le filtre de tag est appliqué
   } else {
-    // Si l'utilisateur a déjà créé des tags
-    if (tagsContainer.children.length > 0) {
-      // Récupérer les tags existants
-      const existingTags = Array.from(tagsContainer.children).map((tagElement) => tagElement.textContent);
+    // Mettre à jour les recettes avec le filtre de tag
+    const displayedRecipes = Array.from(cartes.children).map((carte) => carte.recipe);
+    console.log("Recettes affichées (Avant le filtre par tag) :", displayedRecipes);
 
-      // Combiner les tags existants et le nouveau tag
-      const combinedTags = existingTags.length > 0 ? [tagContent, ...existingTags] : [tagContent];
+    // Combinaison des recettes affichées et des recettes mises à jour si l'utilisateur a fait son premier filter dans le searchbar
+    const updatedRecipes = applyTagFilter(tagContent, filterProperty, recipes);
+    const combinedRecipes = [...displayedRecipes, ...updatedRecipes];
 
-      console.log("Tags combinés :", combinedTags);
+    console.log("Recettes combinées :", combinedRecipes);
 
-      // Filtrer les recettes en fonction des tags combinés
-      const combinedRecipesWithTags = applyTagFilter(combinedTags, filterProperty, recipes);
+    cartes.innerHTML = "";
+    displayCards(combinedRecipes);
 
-      console.log("Recettes filtrées par les tags combinés :", combinedRecipesWithTags);
+    // Si l'utilisateur a choisi plus d'un tag
+    if (tagsContainer.children.length !== 0) {
+      // Accumuler et ajouter pour le même array différents tags
+      const listesLiTag = Array.from(tagsContainer.children).map((tagElement) => tagElement.textContent);
+      console.log(listesLiTag);
 
-      // Ajouter les recettes filtrées aux recettes affichées
-      displayedRecipes = [...displayedRecipes, ...combinedRecipesWithTags]; // Utiliser l'opérateur spread pour combiner les tableaux
+      // Combine the accumulated recipes with the current tag
+      const tagsToCombine = [...listesLiTag, tagContent];
+      const combinedRecipesWithTags = applyTagFilter(tagsToCombine, filterProperty, recipes);
 
-      // Afficher les recettes combinées
+      console.log("Recettes combinées avec tags :", combinedRecipesWithTags);
+
       cartes.innerHTML = "";
-      displayCards(displayedRecipes);
-    } else {
-      // Si l'utilisateur n'a pas encore créé de tags
-      // Filtrer les recettes en fonction du nouveau tag
-      filteredRecipes = applyTagFilter(tagContent, filterProperty, recipes);
-
-      console.log("Recettes filtrées par le nouveau tag :", filteredRecipes);
-
-      // Ajouter les recettes filtrées aux recettes affichées
-      displayedRecipes = [...displayedRecipes, ...filteredRecipes]; // Utiliser l'opérateur spread pour combiner les tableaux
-
-      // Afficher les recettes mises à jour
-      cartes.innerHTML = "";
-      displayCards(displayedRecipes);
+      displayCards(combinedRecipesWithTags);
     }
   }
 
   inputIngredients.value = "";
   inputAppareil.value = "";
-
-  console.log("Recettes affichées :", displayedRecipes); // Afficher les recettes affichées dans la console
 };
 
 
