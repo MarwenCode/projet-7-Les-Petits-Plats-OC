@@ -77,6 +77,9 @@ body {
   margin-bottom: 2px;
   padding: 6px;
 }
+.wrapper main .nbRecipes {
+  margin-right: 50px;
+}
 .wrapper main .filtre {
   padding: 20px;
   margin-top: 20px;
@@ -104,13 +107,15 @@ body {
   height: 50px;
 }
 .wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .btn-section-app,
-.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .btn-section-ingre {
+.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .btn-section-ingre,
+.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .btn-section-ustensiles {
   display: flex;
   padding: 10px;
   width: 180px;
 }
 .wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .btn-section-app button,
-.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .btn-section-ingre button {
+.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .btn-section-ingre button,
+.wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper .btn-section-ustensiles button {
   border: none;
   cursor: pointer;
   border-radius: 20px;
@@ -125,7 +130,6 @@ body {
   position: absolute;
   top: -20px;
   left: 0;
-  display: none;
   max-height: 250px;
   overflow-y: scroll;
   scrollbar-width: thin;
@@ -182,6 +186,16 @@ body {
   color: rgb(198, 198, 198);
   margin-left: 150px;
   position: absolute;
+}
+.wrapper main .filtre .filtre_container .recherche-secondaire .nbrRecipes {
+  margin-left: 450px;
+  position: absolute;
+  color: #1B1B1B;
+  font-family: Anton;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 .wrapper main .cartes {
   display: flex;

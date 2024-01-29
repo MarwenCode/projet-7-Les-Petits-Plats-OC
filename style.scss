@@ -107,6 +107,10 @@ body {
             }
         }
 
+        .nbRecipes {
+            margin-right: 50px;
+        }
+
         .filtre {
             padding: 20px;
             margin-top: 20px;
@@ -140,7 +144,8 @@ body {
 
 
                         .btn-section-app,
-                        .btn-section-ingre {
+                        .btn-section-ingre,
+                        .btn-section-ustensiles {
                             display: flex;
                             padding: 10px;
                             width: 180px;
@@ -169,7 +174,7 @@ body {
                             position: absolute;
                             top: -20px;
                             left: 0;
-                            display: none;
+                            // display: none;
                             max-height: 250px;
                             overflow-y: scroll;
                             scrollbar-width: thin;
@@ -235,9 +240,25 @@ body {
                             }
                         }
                     }
+
+
+                    .nbrRecipes {
+                        margin-left: 450px;
+                        position: absolute;
+
+                        color: #1B1B1B;
+                        font-family: Anton;
+                        font-size: 21px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
                 }
             }
         }
+
+
+
 
         /* Add these styles to your existing CSS file or create a new one */
 
@@ -288,39 +309,39 @@ body {
 
                     .title {
                         font-size: 18px;
-    
+
                         font-weight: bold;
-    
+
                         margin-bottom: 10px;
                         // padding: 5px;
                     }
-    
+
                     .time {
                         color: #888;
-    
+
                         font-size: 14px;
                     }
-    
+
                     .description-section {
                         margin-top: 15px;
                     }
-    
+
                     .description {
                         line-height: 1.5;
-    
+
                         color: #555;
-    
+
                         // overflow: hidden;
                         text-overflow: ellipsis;
-    
+
                         display: -webkit-box;
                         -webkit-box-orient: vertical;
                         overflow: hidden;
                         -webkit-line-clamp: 4;
-    
+
                         max-height: 80%;
                     }
-    
+
                     .ingredients-section {
                         p {
                             color: #7a7a7a;
@@ -332,18 +353,18 @@ body {
                             letter-spacing: 1.08px;
                             text-transform: uppercase;
                         }
-    
+
                         .ingredients {
                             display: flex;
                             flex-wrap: wrap;
                             width: 100%;
-    
+
                             .ingredients-info {
                                 display: flex;
                                 flex-direction: column;
                                 width: 50%;
                                 /* Each ingredient-info takes up 50% of the container width */
-    
+
                                 .title {
                                     p {
                                         margin-bottom: 4px;
@@ -351,7 +372,7 @@ body {
                                         color: rgba(27, 27, 27, 1);
                                     }
                                 }
-    
+
                                 .unit {
                                     display: flex;
                                     /* Display quantity and unit on the same line */
@@ -359,9 +380,9 @@ body {
                                     /* Align elements to the baseline */
                                     margin-top: -20px;
                                     color: rgba(122, 122, 122, 1);
-    
+
                                     p {}
-    
+
                                     span {
                                         color: rgba(122, 122, 122, 1);
                                     }
@@ -373,7 +394,7 @@ body {
 
                 }
 
-         
+
             }
         }
     }
