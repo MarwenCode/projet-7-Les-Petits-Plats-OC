@@ -225,6 +225,22 @@ body {
   height: auto;
   border-radius: 8px 8px 0px 0px;
 }
+.wrapper main .cartes .carte .time {
+  color: #888;
+  font-size: 14px;
+  background-color: rgb(255, 209, 91);
+  width: 80px;
+  border-radius: 10px;
+  text-align: center;
+  height: 25px;
+  margin-top: -230px;
+  margin-left: 250px;
+  position: absolute;
+}
+.wrapper main .cartes .carte .time p {
+  margin-top: 3px;
+  color: black;
+}
 .wrapper main .cartes .carte .text {
   padding: 10px;
 }
@@ -232,10 +248,6 @@ body {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
-}
-.wrapper main .cartes .carte .text .time {
-  color: #888;
-  font-size: 14px;
 }
 .wrapper main .cartes .carte .text .description-section {
   margin-top: 15px;
