@@ -43,13 +43,14 @@ const displayCards = (recipes) => {
           alt="Illustration plat"
         />
       </div>
+      <div class="time">
+      <p>${recipe.time} min</p>
+       </div>
       <div class="text">
         <div class="title">
           <h2>${recipe.name}</h2>
         </div>
-        <div class="time">
-          <p>${recipe.time} min</p>
-        </div>
+       
         <div class="description-section">
           <p class="description">${recipe.description}</p>
         </div>
