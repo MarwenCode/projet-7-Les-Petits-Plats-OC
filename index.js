@@ -101,7 +101,7 @@ const filterRecipes = (searchTerm, recipes) => {
         ) ||
         recipe.description.toLowerCase().includes(searchTerm));
 
-    return matchesSearch;
+        return matchesSearch;
   });
 };
 

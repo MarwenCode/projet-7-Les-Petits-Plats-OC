@@ -27,9 +27,7 @@ body {
   z-index: 1;
 }
 .wrapper main {
-  /* Style for the search container */
   position: relative;
-  /* Add these styles to your existing CSS file or create a new one */
 }
 .wrapper main .searchContainer {
   padding: 20px;
@@ -40,7 +38,6 @@ body {
 .wrapper main .searchContainer .search {
   position: absolute;
   margin-top: -450px;
-  /* Style for the search input */
 }
 .wrapper main .searchContainer .search .texte {
   color: #ffd15b;
@@ -136,6 +133,7 @@ body {
   scrollbar-base-color: white;
   margin-top: 65px;
   width: 100%;
+  z-index: 1;
 }
 .wrapper main .filtre .filtre_container .recherche-secondaire .search-input-wrapper ul::-webkit-scrollbar {
   width: 0;
@@ -188,9 +186,9 @@ body {
   position: absolute;
 }
 .wrapper main .filtre .filtre_container .recherche-secondaire .nbrRecipes {
-  margin-left: 450px;
+  margin-left: 410px;
   position: absolute;
-  color: #1B1B1B;
+  color: #1b1b1b;
   font-family: Anton;
   font-size: 21px;
   font-style: normal;
@@ -280,18 +278,14 @@ body {
   display: flex;
   flex-direction: column;
   width: 50%;
-  /* Each ingredient-info takes up 50% of the container width */
 }
 .wrapper main .cartes .carte .text .ingredients-section .ingredients .ingredients-info .title p {
   margin-bottom: 4px;
-  /* Add margin between title and unit */
   color: rgb(27, 27, 27);
 }
 .wrapper main .cartes .carte .text .ingredients-section .ingredients .ingredients-info .unit {
   display: flex;
-  /* Display quantity and unit on the same line */
   align-items: baseline;
-  /* Align elements to the baseline */
   margin-top: -20px;
   color: rgb(122, 122, 122);
 }

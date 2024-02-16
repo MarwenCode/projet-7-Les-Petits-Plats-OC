@@ -3,8 +3,10 @@ body {
 
     background: #ededed;
 
-    // font-family: Manrope;
-    // background-color: red;
+   
+
+
+
 }
 
 .wrapper {
@@ -36,13 +38,11 @@ body {
                 left: 250px;
 
                 z-index: 1;
-
             }
         }
     }
 
     main {
-        /* Style for the search container */
         position: relative;
 
         .searchContainer {
@@ -67,7 +67,6 @@ body {
                     line-height: normal;
                 }
 
-                /* Style for the search input */
                 .searchInput {
                     display: flex;
                     justify-content: center;
@@ -99,10 +98,8 @@ body {
                     background: #1b1b1b;
                     width: 30px;
 
-
                     margin-bottom: 2px;
                     padding: 6px;
-
                 }
             }
         }
@@ -129,8 +126,6 @@ body {
                     display: flex;
                     align-items: center;
 
-
-
                     .search-input-wrapper {
                         // border-radius: 11px;
                         background: white;
@@ -142,15 +137,12 @@ body {
                         // width: 210px;
                         height: 50px;
 
-
                         .btn-section-app,
                         .btn-section-ingre,
                         .btn-section-ustensiles {
                             display: flex;
                             padding: 10px;
                             width: 180px;
-
-
 
                             button {
                                 border: none;
@@ -181,6 +173,7 @@ body {
                             scrollbar-base-color: white;
                             margin-top: 65px;
                             width: 100%;
+                            z-index: 1;
 
                             &::-webkit-scrollbar {
                                 width: 0;
@@ -190,18 +183,15 @@ body {
                                 display: block;
                             }
 
-
                             li {
                                 text-align: start;
                                 margin: 5px;
-
 
                                 font-family: Manrope;
                                 font-size: 14px;
                                 font-style: normal;
                                 font-weight: 400;
                                 line-height: normal;
-
                             }
                         }
 
@@ -223,10 +213,7 @@ body {
                                 &:focus {
                                     outline: 1px solid rgb(230, 226, 226);
                                 }
-
                             }
-
-
 
                             &.hidden {
                                 display: none;
@@ -241,12 +228,11 @@ body {
                         }
                     }
 
-
                     .nbrRecipes {
-                        margin-left: 450px;
+                        margin-left: 410px;
                         position: absolute;
 
-                        color: #1B1B1B;
+                        color: #1b1b1b;
                         font-family: Anton;
                         font-size: 21px;
                         font-style: normal;
@@ -257,10 +243,7 @@ body {
             }
         }
 
-
-
-
-        /* Add these styles to your existing CSS file or create a new one */
+ 
 
         .cartes {
             display: flex;
@@ -273,7 +256,6 @@ body {
             .carte {
                 width: 350px;
                 margin-left: 55px;
-
 
                 // padding: 10px;
                 margin-bottom: 30px;
@@ -302,6 +284,7 @@ body {
 
                     border-radius: 8px 8px 0px 0px;
                 }
+
                 .time {
                     color: #888;
 
@@ -315,18 +298,14 @@ body {
                     margin-top: -230px;
                     margin-left: 250px;
                     position: absolute;
-                
-                    
-                    p  {
-                      
+
+                    p {
                         margin-top: 3px;
                         color: black;
-                   
                     }
                 }
 
                 .text {
-
                     padding: 10px;
 
                     .title {
@@ -337,8 +316,6 @@ body {
                         margin-bottom: 10px;
                         // padding: 5px;
                     }
-
-                 
 
                     .description-section {
                         margin-top: 15px;
@@ -381,21 +358,20 @@ body {
                                 display: flex;
                                 flex-direction: column;
                                 width: 50%;
-                                /* Each ingredient-info takes up 50% of the container width */
 
                                 .title {
                                     p {
                                         margin-bottom: 4px;
-                                        /* Add margin between title and unit */
+
                                         color: rgba(27, 27, 27, 1);
                                     }
                                 }
 
                                 .unit {
                                     display: flex;
-                                    /* Display quantity and unit on the same line */
+
                                     align-items: baseline;
-                                    /* Align elements to the baseline */
+
                                     margin-top: -20px;
                                     color: rgba(122, 122, 122, 1);
 
@@ -408,11 +384,7 @@ body {
                             }
                         }
                     }
-
-
                 }
-
-
             }
         }
     }
