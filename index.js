@@ -96,7 +96,7 @@ const filterRecipes = (searchTerm, recipes) => {
     const matchesSearch =
       searchTerm.length >= 3 &&
       (recipe.name.toLowerCase().includes(searchTerm) ||
-        recipe.ingredients.every((ingredient) =>
+        recipe.ingredients.some((ingredient) =>
           ingredient.ingredient.toLowerCase().includes(searchTerm)
         ) ||
         recipe.description.toLowerCase().includes(searchTerm));
