@@ -101,25 +101,40 @@ const filterRecipes = (searchTerm, recipes) => {
         ) ||
         recipe.description.toLowerCase().includes(searchTerm));
 
-        return matchesSearch;
+    return matchesSearch;
   });
 };
 
 // Gérer la recherche principale
 
 const handleSearch = (searchTerm) => {
-  const filteredRecipes = filterRecipes(searchTerm, recipes);
-  console.log(filteredRecipes);
-  cartes.innerHTML = "";
-
-  if (filteredRecipes.length > 0) {
-    displayCards(filteredRecipes);
-  } else {
+  // Ajouter la condition pour vérifier la longueur du terme de recherche
+  if (searchTerm.length < 3) {
+    cartes.innerHTML = "";
+    // Afficher 0 recette
     displayNoResult(searchTerm);
+    // Mise à jour du nombre de recettes affichées
+    numberRecipes([]);
+    return;
   }
 
-  // Mettre à jour le nombre de recettes affichées
-  numberRecipes(filteredRecipes);
+  // Effectuer la recherche principale et enregistrer les résultats
+  const searchResults = filterRecipes(searchTerm, recipes);
+  console.log(searchResults);
+  cartes.innerHTML = "";
+
+  // Effectuer l'intersection avec les résultats de la recherche principale
+  const intersectionResults = filterWithAllTagsOnly("ingredients", searchTerm);
+
+  if (intersectionResults.length > 0) {
+    displayCards(intersectionResults);
+    // Mise à jour du nombre de recettes affichées
+    numberRecipes(intersectionResults);
+  } else {
+    displayNoResult(
+      `Aucun résultat pour "${searchTerm}" en intersection avec les ingrédients sélectionnés.`
+    );
+  }
 };
 
 // Recherche de recettes
@@ -326,7 +341,19 @@ const displayListSecondaireUstensiles = (ustensiles) => {
   });
 };
 
-// Ajouter un gestionnaire d'événements pour la suppression du tag
+let selectedTags = [];
+
+// Fonction pour mettre à jour la liste des tags restants
+const selecteTags = () => {
+  selectedTags = Array.from(tagsContainer.querySelectorAll(".tag")).map((tag) =>
+    tag.textContent.toLowerCase()
+  );
+};
+
+
+const originalRecipes = [...recipes];
+
+
 tagsContainer.addEventListener("click", (event) => {
   if (event.target.classList.contains("fa-times")) {
     const tag = event.target.parentElement.previousElementSibling;
@@ -335,20 +362,37 @@ tagsContainer.addEventListener("click", (event) => {
     tag.remove();
     event.target.parentElement.remove();
 
+    // Appeler la fonction pour mettre à jour la liste des tags restants
+    selecteTags();
+
+    // Récupérer la valeur actuelle de la barre de recherche principale
+    const searchTerm = inputSearch.value.toLowerCase().trim();
+
     // S'il reste des tags, filtrer et afficher les recettes en fonction d'eux
-    // S'il ne reste qu'un seul tag, afficher toutes les recettes
-    const remainingTags = tagsContainer.querySelectorAll(".tag");
-    if (remainingTags.length > 0) {
+    if (selectedTags.length > 0) {
       const filteredRecipes = filterWithAllTagsOnly();
       cartes.innerHTML = "";
       displayCards(filteredRecipes);
+      numberRecipes(filteredRecipes);
     } else {
-      cartes.innerHTML = "";
-      displayCards(recipes);
-      numberRecipes(recipes);
+      // Si aucun tag restant et pas d'input value, afficher les résultats par défaut
+      if (searchTerm === "") {
+        cartes.innerHTML = "";
+        displayCards(originalRecipes);
+        numberRecipes(originalRecipes);
+      } else {
+        // Sinon, afficher les résultats de la recherche principale
+        const searchResults = filterRecipes(searchTerm, originalRecipes);
+        cartes.innerHTML = "";
+        displayCards(searchResults);
+        numberRecipes(searchResults);
+      }
     }
   }
 });
+
+
+
 
 // Créer des tags
 
@@ -383,16 +427,21 @@ const createDeleteButton = () => {
 // Fonction pour créer des tags
 
 // Fonction pour créer des tags
+// Mettre à jour la fonction createTag
 const createTag = (tagContent, filterProperty) => {
   const tag = createTagElement(tagContent);
   const deleteTag = createDeleteButton();
   tagsContainer.appendChild(tag);
   tagsContainer.appendChild(deleteTag);
 
+  inputIngredients.value = "";
+  inputAppareil.value = "";
+  inputUstensiles.value = "";
+
   // Vérifier si la barre de recherche est vide
   if (inputSearch.value === "") {
     // Obtenir les recettes filtrées à partir des tags
-    const filteredRecipesWithTags = filterWithAllTagsOnly(filterProperty);
+    const filteredRecipesWithTags = filterWithAllTagsOnly(filterProperty, "");
 
     // Afficher les résultats filtrés
     cartes.innerHTML = "";
@@ -405,18 +454,20 @@ const createTag = (tagContent, filterProperty) => {
     );
 
     // Obtenir les recettes filtrées à partir des tags
-    const filteredRecipesWithTags = filterWithAllTagsOnly(filterProperty);
+    const filteredRecipesWithTags = filterWithAllTagsOnly(
+      filterProperty,
+      inputSearch.value.toLowerCase().trim()
+    );
 
-    // Combiner les résultats filtrés
-    const combinedResults = [
-      ...filteredRecipesWithSearchBar,
-      ...filteredRecipesWithTags,
-    ];
+    // Intersection entre la recherche principale et les tags
+    const intersectionResults = filteredRecipesWithSearchBar.filter((result) =>
+      filteredRecipesWithTags.includes(result)
+    );
 
-    // Afficher les résultats combinés
+    // Afficher les résultats de l'intersection
     cartes.innerHTML = "";
-    displayCards(combinedResults);
-    numberRecipes(combinedResults);
+    displayCards(intersectionResults);
+    numberRecipes(intersectionResults);
   }
 
   // Effacer les champs de saisie
@@ -426,7 +477,8 @@ const createTag = (tagContent, filterProperty) => {
 
 // Si aucune recherche n'est effectuée dans la barre de recherche et les tags sont encore vides
 // Fonction pour filtrer les recettes avec tous les tags uniquement
-const filterWithAllTagsOnly = (filterProperty) => {
+// / Mettre à jour la fonction filterWithAllTagsOnly
+const filterWithAllTagsOnly = (filterProperty, searchTerm) => {
   console.log("Filtrage avec tous les tags...");
   // Obtenir tous les tags sélectionnés
   const selectedTags = Array.from(document.querySelectorAll(".tag")).map(
@@ -469,17 +521,24 @@ const filterWithAllTagsOnly = (filterProperty) => {
     }
   });
 
-  // Combiner les recettes filtrées de différentes catégories en fonction de filterProperty
+  // Intersection entre les catégories de recettes filtrées
   let combinedRecipes = [];
   switch (filterProperty) {
     case "ingredients":
-      combinedRecipes = [...recipesFilteredByIngredient];
+      // Si un terme de recherche est fourni, filtrer encore avec la recherche principale
+      if (searchTerm) {
+        combinedRecipes = recipesFilteredByIngredient.filter(
+          (recipe) => filterRecipes(searchTerm, [recipe]).length > 0
+        );
+      } else {
+        combinedRecipes = recipesFilteredByIngredient;
+      }
       break;
     case "appliance":
-      combinedRecipes = [...recipesFilteredByAppliance];
+      combinedRecipes = recipesFilteredByAppliance;
       break;
     case "ustensiles":
-      combinedRecipes = [...recipesFilteredByUstensil];
+      combinedRecipes = recipesFilteredByUstensil;
       break;
     default:
       combinedRecipes = [

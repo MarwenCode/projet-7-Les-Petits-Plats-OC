@@ -61,7 +61,7 @@ const recipes = [
                 "quantity" : 5
             },
             {
-                "ingredient" : "Lait de Coco",
+                "ingredient" : "Lait de coco",
                 "quantity" : 100,
                 "unit" : "ml"
             }
@@ -488,7 +488,7 @@ const recipes = [
                 "quantity": 2
             },
             {
-                "ingredient": "Farine de blé noir",
+                "ingredient": "farine de blé noir",
                 "quantity": 130,
                 "unit": "grammes"
             },
@@ -529,7 +529,7 @@ const recipes = [
                 "quantity": 3
             },
             {
-                "ingredient": "Farine",
+                "ingredient": "farine",
                 "quantity": 250,
                 "unit": "grammes"
             },
@@ -783,7 +783,7 @@ const recipes = [
                 "unit": "grammes"
             },
             {
-                "ingredient": "Farine",
+                "ingredient": "farine",
                 "quantity": 50,
                 "unit": "grammes"
             },
@@ -900,7 +900,7 @@ const recipes = [
                 "unit": "grammes"
             },
             {
-                "ingredient": "Farine",
+                "ingredient": "farine",
                 "quantity": 100,
                 "unit": "grammes"
             },
@@ -1385,7 +1385,7 @@ const recipes = [
                 "quantity": 2
             },
             {
-                "ingredient": "Farine",
+                "ingredient": "farine",
                 "quantity": 100,
                 "unit": "grammes"
             },
@@ -1579,7 +1579,7 @@ const recipes = [
                 "quantity": 2
             },
             {
-                "ingredient": "Farine",
+                "ingredient": "farine",
                 "quantity": 30,
                 "unit": "grammes"
             },
@@ -1601,7 +1601,7 @@ const recipes = [
         "servings": 6,
         "ingredients": [
             {
-                "ingredient": "Farine",
+                "ingredient": "farine",
                 "quantity": 250,
                 "unit": "grammes"
             },
